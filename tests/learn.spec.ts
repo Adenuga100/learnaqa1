@@ -24,7 +24,8 @@ import { DynamicElementPage } from "../pages/DynamicElement.po";
 // });
 
 test.describe('Unauthenticated tests', () => {
- test.use({ storageState: 'cookies.json' });
+//  test.use({ storageState: 'cookies.json' });
+test.use({ storageState: { cookies: [], origins: [] } });
 
  test('Sign Up functionality', async ({ page }) => {
     // test.use({ storageState: { cookies: [], origins: [] } });
@@ -44,6 +45,7 @@ test.describe('Unauthenticated tests', () => {
 test('Sign In functionality', async ({ page }) => {
   await page.goto('/'); // Replace with your application's URL
   await HomePage.clickAcceptAllCookies(page);
+  await HomePage.sigIn(page);
   await signInPage.fillEmailAs(page, 'adenugaadeyemiisaac@gmail.com');
   await signInPage.fillPasswordAs(page, 'Hardayemmh4$');
   await signInPage.clickSignInButton(page);
@@ -62,13 +64,15 @@ test('Sign In functionality', async ({ page }) => {
 test('Drag and Drop functionality on the Dashboard page', async ({ page }) => {
     
     await page.goto('');
+    await HomePage.clickDashboard(page);
     await DashboardPage.clickStartPracticeByIndex(page, 0);
     await DashboardPage.dragAndDrop(page);
     await expect(DashboardPage.getTittle(page)).toBeVisible();
 });
 
 test('Drag and Drop functionality on the slide menus', async ({ page }) => {
-    await page.goto('/dashboard');
+    await page.goto('');
+    await HomePage.clickDashboard(page);
     await DashboardPage.clickSideMenuByNameAs(page, 'Drag and Drop');
     // await DashboardPage.clickStartPracticesAs(page, 0);
     await DashboardPage.dragAndDrop(page);
@@ -76,14 +80,16 @@ test('Drag and Drop functionality on the slide menus', async ({ page }) => {
 });
 
 test('Dynamic Elements functionality click delayed element on Dashboard', async ({ page }) => {
-    await page.goto('/dashboard');
+    await page.goto('');
+    await HomePage.clickDashboard(page);
     await DashboardPage.clickStartPracticeByIndex(page, 1);
     await DynamicElementPage.clickDelayedElement(page);
     await expect(DynamicElementPage.getTittle(page)).toBeVisible({timeout: 10000});
 });
 
 test('Dynamic Elements functionality click delayed element on slide menus', async ({ page }) => {
-    await page.goto('/dashboard');
+    await page.goto('');
+    await HomePage.clickDashboard(page);
     // await DashboardPage.clickStartPracticesAs(page, 1);
     await DashboardPage.clickSideMenuByNameAs(page, 'Dynamic Elements');
     await DynamicElementPage.clickDelayedElement(page);
@@ -91,7 +97,8 @@ test('Dynamic Elements functionality click delayed element on slide menus', asyn
 });
 
 test('Dynamic Elements functionality click ajax data loading element on dashboard', async ({ page }) => {
-    await page.goto('/dashboard');
+    await page.goto('');
+    await HomePage.clickDashboard(page);
     await DashboardPage.clickStartPracticeByIndex(page, 1);
     // await DashboardPage.clickSideMenuByNameAs(page, 'Dynamic Elements');
     await DynamicElementPage.clickAjaxDataLoading(page);
@@ -100,7 +107,8 @@ test('Dynamic Elements functionality click ajax data loading element on dashboar
 });
 
 test('Dynamic Elements functionality click ajax data loading element on slide menus', async ({ page }) => {
-    await page.goto('/dashboard');
+    await page.goto('');
+    await HomePage.clickDashboard(page);
     //await DashboardPage.clickStartPracticesAs(page, 1);
     await DashboardPage.clickSideMenuByNameAs(page, 'Dynamic Elements');
     await DynamicElementPage.clickAjaxDataLoading(page);

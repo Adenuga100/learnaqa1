@@ -2,20 +2,20 @@
   "cookies": [
     {
       "name": "_ga",
-      "value": "GA1.1.1018294966.1768208212",
+      "value": "GA1.1.1507589228.1768299381",
       "domain": ".learnaqa.info",
       "path": "/",
-      "expires": 1802768211.910546,
+      "expires": 1802859380.734958,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "_ga_2MVLMBBWW5",
-      "value": "GS2.1.s1768208211$o1$g0$t1768208214$j57$l0$h0",
+      "value": "GS2.1.s1768299380$o1$g0$t1768299381$j59$l0$h0",
       "domain": ".learnaqa.info",
       "path": "/",
-      "expires": 1802768214.031626,
+      "expires": 1802859381.394529,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
@@ -27,15 +27,15 @@
       "localStorage": [
         {
           "name": "cookie-consent",
-          "value": "{\"essential\":true,\"analytics\":true,\"performance\":true,\"timestamp\":\"2026-01-12T08:56:53.215Z\"}"
+          "value": "{\"essential\":true,\"analytics\":true,\"performance\":true,\"timestamp\":\"2026-01-13T10:16:21.262Z\"}"
         },
         {
           "name": "qa_platform_refresh_token",
-          "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3Njg4MTMwMTYsInN1YiI6IjQyIiwidHlwZSI6InJlZnJlc2gifQ.kNZIxaEnpZBSLDeRSGljWyMrkQ9gWvUIzI-CxCIAg5A\""
+          "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3Njg5MDQxODIsInN1YiI6IjQyIiwidHlwZSI6InJlZnJlc2gifQ.N5grzdrbX7RryAYPl92g4qF3KQP--_VQkLKdnzVuTCA\""
         },
         {
           "name": "qa_platform_token",
-          "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NjgyMTAwMTYsInN1YiI6IjQyIiwidHlwZSI6ImFjY2VzcyJ9.DQlsFOS04KbMWrV-5vDzHqPUs_BnPTaH7NULlMNmqzg\""
+          "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NjgzMDExODIsInN1YiI6IjQyIiwidHlwZSI6ImFjY2VzcyJ9.iELaTR2mn8ttk-PWAJoelquMQfceCkqxo3QAQH-FVnc\""
         }
       ]
     }
