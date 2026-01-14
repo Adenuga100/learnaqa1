@@ -131,13 +131,39 @@ test('Dynamic Elements functionality click Lizy loading on dashboard', async ({ 
 test('Dynamic Elements functionality click Lizy loading on slide menus', async ({ page }) => {
     await page.goto('');
     await HomePage.clickDashboard(page);
-    await DashboardPage.clickStartPracticeByIndex(page, 1);
+    // await DashboardPage.clickStartPracticeByIndex(page, 1);
     await DashboardPage.clickSideMenuByNameAs(page, 'Dynamic Elements');
-    // await DynamicElementPage.scrolldownLazyLoading(page);
+    await DynamicElementPage.scrolldownLazyLoading(page);
     await DynamicElementPage.scrollDownImagesLoading(page);
     await expect(DynamicElementPage.getImagesLoadingTittle(page)).toBeVisible({timeout: 10000});
  
 });
+
+test('Dynamic Elements functionality click Infinite scroll on slide menus', async ({ page }) => {
+    await page.goto('');
+    await HomePage.clickDashboard(page);
+    // await DashboardPage.clickStartPracticeByIndex(page, 1);
+    await DashboardPage.clickSideMenuByNameAs(page, 'Dynamic Elements');
+    await DynamicElementPage.scrollInfinite(page);
+    // await DynamicElementPage.scrollInfiniteItems(page);
+    await DynamicElementPage.scrollUntilTargetLoaded(page);
+    await expect(DynamicElementPage.getNoMoreItemsTittle(page)).toBeVisible({timeout: 10000});
+ 
+});
+
+test('Dynamic Elements functionality click Infinite scroll on dashboard', async ({ page }) => {
+    await page.goto('');
+    await HomePage.clickDashboard(page);
+    await DashboardPage.clickStartPracticeByIndex(page, 1);
+    // await DashboardPage.clickSideMenuByNameAs(page, 'Dynamic Elements');
+    await DynamicElementPage.scrollInfinite(page);
+    // await DynamicElementPage.scrollInfiniteItems(page);
+    await DynamicElementPage.scrollUntilTargetLoaded(page);
+    await expect(DynamicElementPage.getNoMoreItemsTittle(page)).toBeVisible({timeout: 10000});
+ 
+});
+
+
 
 
 

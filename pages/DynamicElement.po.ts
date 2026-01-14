@@ -21,13 +21,60 @@ export class DynamicElementPage {
     static async scrolldownLazyLoading(page: Page): Promise<void> {
       let lazyloading = page.getByText('Lazy Loading Images');
     
-            return await lazyloading.scrollIntoViewIfNeeded();
-        
+        return await lazyloading.scrollIntoViewIfNeeded();
         
     }
 
+    static async scrollInfinite(page: Page): Promise<void> {
+      let scrollInfinite = page.getByText('Loaded');
+       return await scrollInfinite.scrollIntoViewIfNeeded();
+       await page.waitForTimeout(2000);
+
+
+    }
+
+    // static async scrollInfiniteItems(page: Page): Promise<void> {
+    //   let scrollInfiniteItems = ('[class*="white rounded border"]');
+    //    let count = await page.locator(scrollInfiniteItems).count();
+      
+    //    while(await page.locator(scrollInfiniteItems).count() < 0) {
+        
+    //         await page.locator(scrollInfiniteItems).last().scrollIntoViewIfNeeded({timeout: 10000});
+    //         await page.waitForTimeout(2000);
+    //     }
+        
+    // }
+
+    static async scrollUntilTargetLoaded(page: Page): Promise<void> {
+        let itemSelector = '[class*="white rounded border"]';
+    
+        let currentCount = await page.locator(itemSelector).count();
+
+        while (true) {
+           // 1. Find the last item currently available
+           let lastItem = page.locator(itemSelector).last();
+        
+            // 2. Scroll it into view to trigger the 'Load More' event
+            await lastItem.scrollIntoViewIfNeeded();
+
+          // 3. Wait for the network or DOM to update
+            // Using a small timeout or waiting for a specific network response is best
+          await page.waitForTimeout(2000); 
+
+          // 4. Re-count the items
+           let newCount = await page.locator(itemSelector).count();
+
+           // 5. Exit if no new items are appearing (reached the end of the site)
+            if (newCount === currentCount) {
+               break;
+            }
+
+         currentCount = newCount;
+        }
+    }
+
     static async scrollDownImagesLoading(page: Page): Promise<void> {
-      let lazyloading = page.locator('[class*="lazy-image-placeholder"]');
+      let lazyloading = page.locator('[class*="scroll-item p-3 bg-white rounded border"]');
       let count = await lazyloading.count();
 
         
@@ -61,6 +108,13 @@ export class DynamicElementPage {
         let lazyloading = page.locator('[class*="lazy-image-placeholder"]').nth(9);
         
         return lazyloading;
+    }
+
+    static   getNoMoreItemsTittle(page: Page): Locator {
+        // let delayElementBtn = page.getByText('Click to Show Delayed Element'); 
+        // await delayElementBtn.click();
+        return  page.getByText('No more items to load');
+        
     }
 
 }
