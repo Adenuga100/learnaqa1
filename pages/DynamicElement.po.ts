@@ -7,6 +7,15 @@ export class DynamicElementPage {
        return await delayElementBtn.click();
     }
 
+    static async clickHiddenElements(page: Page): Promise<void> {
+        // let scrollhiddendynamic  = page.getByText('Hidden & Dynamic Elements'); 
+        // await scrollhiddendynamic.scrollIntoViewIfNeeded();
+
+        let clickhiddendynamic  = page.getByRole('button', { name: 'Reveal Hidden Elements' }); 
+        await clickhiddendynamic.scrollIntoViewIfNeeded();
+       return await clickhiddendynamic.click();
+    }
+
     static  getTittle(page: Page): Locator {
         // let delayElementBtn = page.getByText('Click to Show Delayed Element'); 
         // await delayElementBtn.click();
@@ -114,6 +123,13 @@ export class DynamicElementPage {
         // let delayElementBtn = page.getByText('Click to Show Delayed Element'); 
         // await delayElementBtn.click();
         return  page.getByText('No more items to load');
+        
+    }
+
+    static   getHiddenElementTittle(page: Page): Locator {
+        // let delayElementBtn = page.getByText('Click to Show Delayed Element'); 
+        // await delayElementBtn.click();
+        return  page.getByText('Hidden element revealed!');
         
     }
 

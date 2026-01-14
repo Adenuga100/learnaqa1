@@ -163,6 +163,26 @@ test('Dynamic Elements functionality click Infinite scroll on dashboard', async 
  
 });
 
+test('Dynamic Elements functionality click Hidden Elements on dashboard', async ({ page }) => {
+    await page.goto('');
+    await HomePage.clickDashboard(page);
+    await DashboardPage.clickStartPracticeByIndex(page, 1);
+    // await DashboardPage.clickSideMenuByNameAs(page, 'Dynamic Elements');
+    await DynamicElementPage.clickHiddenElements(page);
+    await expect(DynamicElementPage.getHiddenElementTittle(page)).toBeVisible({timeout: 10000});
+ 
+});
+
+test('Dynamic Elements functionality click Hidden Elements on slide menus', async ({ page }) => {
+    await page.goto('');
+    await HomePage.clickDashboard(page);
+    await DashboardPage.clickStartPracticeByIndex(page, 1);
+    // await DashboardPage.clickSideMenuByNameAs(page, 'Dynamic Elements');
+    await DynamicElementPage.clickHiddenElements(page);
+    await expect(DynamicElementPage.getHiddenElementTittle(page)).toBeVisible({timeout: 10000});
+ 
+});
+
 
 
 
