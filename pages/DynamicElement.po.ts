@@ -16,6 +16,15 @@ export class DynamicElementPage {
        return await clickhiddendynamic.click();
     }
 
+    static async clickDynamicContentGeneration(page: Page): Promise<void> {
+        // let scrollhiddendynamic  = page.getByText('Hidden & Dynamic Elements'); 
+        // await scrollhiddendynamic.scrollIntoViewIfNeeded();
+
+        let clickgeneratedynamic  = page.getByRole('button', { name: 'Generate Dynamic Content' }); 
+        await clickgeneratedynamic.scrollIntoViewIfNeeded();
+       return await clickgeneratedynamic.click();
+    }
+
     static  getTittle(page: Page): Locator {
         // let delayElementBtn = page.getByText('Click to Show Delayed Element'); 
         // await delayElementBtn.click();
@@ -130,6 +139,13 @@ export class DynamicElementPage {
         // let delayElementBtn = page.getByText('Click to Show Delayed Element'); 
         // await delayElementBtn.click();
         return  page.getByText('Hidden element revealed!');
+        
+    }
+
+    static   getDynamicElementTittle(page: Page): Locator {
+        // let delayElementBtn = page.getByText('Click to Show Delayed Element'); 
+        // await delayElementBtn.click();
+        return  page.locator('[id="dynamic-content"]');
         
     }
 
