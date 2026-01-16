@@ -117,6 +117,96 @@ test('Dynamic Elements functionality click ajax data loading element on slide me
 });
 
 
+test('Dynamic Elements functionality click Lizy loading on dashboard', async ({ page }) => {
+    await page.goto('');
+    await HomePage.clickDashboard(page);
+    await DashboardPage.clickStartPracticeByIndex(page, 1);
+    // await DashboardPage.clickSideMenuByNameAs(page, 'Dynamic Elements');
+    await DynamicElementPage.scrolldownLazyLoading(page);
+    await DynamicElementPage.scrollDownImagesLoading(page);
+    await expect(DynamicElementPage.getImagesLoadingTittle(page)).toBeVisible({timeout: 10000});
+ 
+});
+
+test('Dynamic Elements functionality click Lizy loading on slide menus', async ({ page }) => {
+    await page.goto('');
+    await HomePage.clickDashboard(page);
+    // await DashboardPage.clickStartPracticeByIndex(page, 1);
+    await DashboardPage.clickSideMenuByNameAs(page, 'Dynamic Elements');
+    await DynamicElementPage.scrolldownLazyLoading(page);
+    await DynamicElementPage.scrollDownImagesLoading(page);
+    await expect(DynamicElementPage.getImagesLoadingTittle(page)).toBeVisible({timeout: 10000});
+ 
+});
+
+test('Dynamic Elements functionality click Infinite scroll on slide menus', async ({ page }) => {
+    await page.goto('');
+    await HomePage.clickDashboard(page);
+    // await DashboardPage.clickStartPracticeByIndex(page, 1);
+    await DashboardPage.clickSideMenuByNameAs(page, 'Dynamic Elements');
+    await DynamicElementPage.scrollInfinite(page);
+    // await DynamicElementPage.scrollInfiniteItems(page);
+    await DynamicElementPage.scrollUntilTargetLoaded(page);
+    await expect(DynamicElementPage.getNoMoreItemsTittle(page)).toBeVisible({timeout: 10000});
+ 
+});
+
+test('Dynamic Elements functionality click Infinite scroll on dashboard', async ({ page }) => {
+    await page.goto('');
+    await HomePage.clickDashboard(page);
+    await DashboardPage.clickStartPracticeByIndex(page, 1);
+    // await DashboardPage.clickSideMenuByNameAs(page, 'Dynamic Elements');
+    await DynamicElementPage.scrollInfinite(page);
+    // await DynamicElementPage.scrollInfiniteItems(page);
+    await DynamicElementPage.scrollUntilTargetLoaded(page);
+    await expect(DynamicElementPage.getNoMoreItemsTittle(page)).toBeVisible({timeout: 10000});
+ 
+});
+
+test('Dynamic Elements functionality click Hidden Elements on dashboard', async ({ page }) => {
+    await page.goto('');
+    await HomePage.clickDashboard(page);
+    await DashboardPage.clickStartPracticeByIndex(page, 1);
+    // await DashboardPage.clickSideMenuByNameAs(page, 'Dynamic Elements');
+    await DynamicElementPage.clickHiddenElements(page);
+    await expect(DynamicElementPage.getHiddenElementTittle(page)).toBeVisible({timeout: 10000});
+ 
+});
+
+test('Dynamic Elements functionality click Hidden Elements on slide menus', async ({ page }) => {
+    await page.goto('');
+    await HomePage.clickDashboard(page);
+    // await DashboardPage.clickStartPracticeByIndex(page, 1);
+    await DashboardPage.clickSideMenuByNameAs(page, 'Dynamic Elements');
+    await DynamicElementPage.clickHiddenElements(page);
+    await expect(DynamicElementPage.getHiddenElementTittle(page)).toBeVisible({timeout: 10000});
+ 
+});
+
+test('Dynamic Elements functionality click Dynamic Content Generation on slide menus', async ({ page }) => {
+    await page.goto('');
+    await HomePage.clickDashboard(page);
+    // await DashboardPage.clickStartPracticeByIndex(page, 1);
+    await DashboardPage.clickSideMenuByNameAs(page, 'Dynamic Elements');
+    await DynamicElementPage.clickDynamicContentGeneration(page);
+    await expect(DynamicElementPage.getDynamicElementTittle(page)).toBeVisible({timeout: 10000});
+ 
+});
+
+test('Dynamic Elements functionality click Dynamic Content Generation on dashboard', async ({ page }) => {
+    await page.goto('');
+    await HomePage.clickDashboard(page);
+    await DashboardPage.clickStartPracticeByIndex(page, 1);
+    // await DashboardPage.clickSideMenuByNameAs(page, 'Dynamic Elements');
+    await DynamicElementPage.clickDynamicContentGeneration(page);
+    await expect(DynamicElementPage.getDynamicElementTittle(page)).toBeVisible({timeout: 10000});
+ 
+});
+
+
+
+
+
 
 
 
