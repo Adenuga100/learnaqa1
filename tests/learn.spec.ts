@@ -4,6 +4,7 @@ import { HomePage } from "../pages/Home.po";
  import { signInPage } from "../pages/Signin.po";
 import { DashboardPage } from "../pages/Dashboard.po";
 import { DynamicElementPage } from "../pages/DynamicElement.po";
+import { FileOperationsPracticePage } from "../pages/FileOperationsPractice.po";
 
 
 
@@ -115,6 +116,35 @@ test('Dynamic Elements functionality click ajax data loading element on slide me
     await DynamicElementPage.scrolldownonAjaxDataLoading(page);
     await expect(DynamicElementPage.getAjaxDataLoadingTittle(page)).toBeVisible({timeout: 10000});
 });
+
+test('File Operations Practice element on slide menus', async ({ page }) => {
+    await page.goto('');
+    await HomePage.clickDashboard(page);
+    //await DashboardPage.clickStartPracticesAs(page, 1);
+    await DashboardPage.clickSideMenuByNameAs(page, 'File Operations');
+    await FileOperationsPracticePage.clickDownloadTemplate(page);
+    await FileOperationsPracticePage.uploadFile(page);
+    await FileOperationsPracticePage.clickDownload(page);
+    await FileOperationsPracticePage.uplaodAnotherFiles(page);
+    await FileOperationsPracticePage.scrollDown(page);
+    await expect(FileOperationsPracticePage.getTittle(page)).toBeVisible({timeout: 10000});
+});
+
+test('File Operations Practice element on dashboard', async ({ page }) => {
+    await page.goto('');
+    await HomePage.clickDashboard(page);
+    await DashboardPage.clickStartPracticeByIndex(page, 2);
+    // await DashboardPage.clickSideMenuByNameAs(page, 'File Operations');
+    await FileOperationsPracticePage.clickDownloadTemplate(page);
+    await FileOperationsPracticePage.uploadFile(page);
+    await FileOperationsPracticePage.clickDownload(page);
+    await FileOperationsPracticePage.uplaodAnotherFiles(page);
+    await FileOperationsPracticePage.scrollDown(page);
+    await expect(FileOperationsPracticePage.getTittle(page)).toBeVisible({timeout: 10000});
+});
+
+
+
 
 
 test('Dynamic Elements functionality click Lizy loading on dashboard', async ({ page }) => {
