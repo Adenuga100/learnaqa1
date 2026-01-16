@@ -6,6 +6,10 @@
       "domain": ".learnaqa.info",
       "path": "/",
       "expires": 1803048794.260885,
+      "value": "GA1.1.1891763706.1768400326",
+      "domain": ".learnaqa.info",
+      "path": "/",
+      "expires": 1802960325.795808,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
@@ -16,6 +20,10 @@
       "domain": ".learnaqa.info",
       "path": "/",
       "expires": 1803048794.976712,
+      "value": "GS2.1.s1768400325$o1$g0$t1768400326$j59$l0$h0",
+      "domain": ".learnaqa.info",
+      "path": "/",
+      "expires": 1802960326.715618,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
@@ -36,6 +44,15 @@
         {
           "name": "qa_platform_token",
           "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3Njg0OTA1OTcsInN1YiI6IjQyIiwidHlwZSI6ImFjY2VzcyJ9.r6gT6JCR7oMesjXkFTUg5ZefpE-xRuqA1v6uU_rwiJg\""
+          "value": "{\"essential\":true,\"analytics\":true,\"performance\":true,\"timestamp\":\"2026-01-14T14:18:46.583Z\"}"
+        },
+        {
+          "name": "qa_platform_refresh_token",
+          "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NjkwMDUxMjcsInN1YiI6IjQyIiwidHlwZSI6InJlZnJlc2gifQ.eRytpmkgVvys3advPp5huqN9YXNZZs-UxZMKYiTSufY\""
+        },
+        {
+          "name": "qa_platform_token",
+          "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3Njg0MDIxMjcsInN1YiI6IjQyIiwidHlwZSI6ImFjY2VzcyJ9.QMlOPU_RZKcXicwrGmkBboLQ9HezHoxgLbXu83lHbCk\""
         }
       ]
     }
