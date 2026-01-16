@@ -27,20 +27,30 @@ test.describe('Unauthenticated tests', () => {
 //  test.use({ storageState: 'cookies.json' });
 test.use({ storageState: { cookies: [], origins: [] } });
 
- test('Sign Up functionality', async ({ page }) => {
-    // test.use({ storageState: { cookies: [], origins: [] } });
-    //   const context = await browser.newContext(); // ❌ no storageState
-//    const page = await context.newPage();
- //   test.use({ storageState: undefined });
-    await page.goto('/'); // Replace with your application's URL
-    await HomePage.clickAcceptAllCookies(page);
-    await HomePage.sigUp(page);
-    await sigUpPage.fillFullNameAs(page, 'John Doe');
-    await sigUpPage.fillEmailAs(page);
-    await sigUpPage.fillPasswordAs(page);
-    await sigUpPage.clickSignUpButton(page);
-    await expect(sigUpPage.getTittle(page)).toBeVisible();
-});
+//  test('Sign Up functionality', async ({ page }) => {
+//     // test.use({ storageState: { cookies: [], origins: [] } });
+//     //   const context = await browser.newContext(); // ❌ no storageState
+// //    const page = await context.newPage();
+//  //   test.use({ storageState: undefined });
+//     await page.goto('/'); // Replace with your application's URL
+//     await HomePage.clickAcceptAllCookies(page);
+//     await HomePage.sigUp(page);
+//     await sigUpPage.fillFullNameAs(page, 'John Doe');
+//     await sigUpPage.fillEmailAs(page);
+//     await sigUpPage.fillPasswordAs(page);
+//     await sigUpPage.clickSignUpButton(page);
+//     await expect(sigUpPage.getTittle(page)).toBeVisible();
+// });
+
+// test('Sign In functionality', async ({ page }) => {
+//   await page.goto('/'); // Replace with your application's URL
+//   await HomePage.clickAcceptAllCookies(page);
+//   await signInPage.fillEmailAs(page, 'adenugaadeyemiisaac@gmail.com');
+//   await signInPage.fillPasswordAs(page, 'Hardayemmh4$');
+//   await signInPage.clickSignInButton(page);
+//   await expect(signInPage.getTittle(page)).toBeVisible();
+// });
+// });
 
 test('Sign In functionality', async ({ page }) => {
   await page.goto('/'); // Replace with your application's URL
@@ -55,7 +65,7 @@ test('Sign In functionality', async ({ page }) => {
 
 
 test('Sign In functionality', async ({ page }) => {
-    await page.goto(''); // Replace with your application's URL
+    await page.goto('/'); // Replace with your application's URL
     await expect(signInPage.getTittle(page)).toBeVisible();
 });
 
