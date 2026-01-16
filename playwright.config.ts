@@ -12,7 +12,7 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-   globalSetup: require.resolve('./tests/storage.spec.ts'),
+   globalSetup: require.resolve('./tests/Storage.spec.ts'),
   
   testDir: './tests',
   /* Run tests in files in parallel */
