@@ -23,8 +23,9 @@ import { DynamicElementPage } from "../pages/DynamicElement.po";
 //     await expect(sigUpPage.getTittle(page)).toBeVisible();
 // });
 
-// test.describe('Unauthenticated tests', () => {
+test.describe('Unauthenticated tests', () => {
 //  test.use({ storageState: 'cookies.json' });
+test.use({ storageState: { cookies: [], origins: [] } });
 
 //  test('Sign Up functionality', async ({ page }) => {
 //     // test.use({ storageState: { cookies: [], origins: [] } });
@@ -51,6 +52,16 @@ import { DynamicElementPage } from "../pages/DynamicElement.po";
 // });
 // });
 
+test('Sign In functionality', async ({ page }) => {
+  await page.goto('/'); // Replace with your application's URL
+  await HomePage.clickAcceptAllCookies(page);
+  await HomePage.sigIn(page);
+  await signInPage.fillEmailAs(page, 'adenugaadeyemiisaac@gmail.com');
+  await signInPage.fillPasswordAs(page, 'Hardayemmh4$');
+  await signInPage.clickSignInButton(page);
+  await expect(signInPage.getTittle(page)).toBeVisible();
+  });
+});
 
 
 test('Sign In functionality', async ({ page }) => {
@@ -114,4 +125,99 @@ test('Dynamic Elements functionality click ajax data loading element on slide me
     await DynamicElementPage.scrolldownonAjaxDataLoading(page);
     await expect(DynamicElementPage.getAjaxDataLoadingTittle(page)).toBeVisible({timeout: 10000});
 });
+
+
+test('Dynamic Elements functionality click Lizy loading on dashboard', async ({ page }) => {
+    await page.goto('');
+    await HomePage.clickDashboard(page);
+    await DashboardPage.clickStartPracticeByIndex(page, 1);
+    // await DashboardPage.clickSideMenuByNameAs(page, 'Dynamic Elements');
+    await DynamicElementPage.scrolldownLazyLoading(page);
+    await DynamicElementPage.scrollDownImagesLoading(page);
+    await expect(DynamicElementPage.getImagesLoadingTittle(page)).toBeVisible({timeout: 10000});
+ 
+});
+
+test('Dynamic Elements functionality click Lizy loading on slide menus', async ({ page }) => {
+    await page.goto('');
+    await HomePage.clickDashboard(page);
+    // await DashboardPage.clickStartPracticeByIndex(page, 1);
+    await DashboardPage.clickSideMenuByNameAs(page, 'Dynamic Elements');
+    await DynamicElementPage.scrolldownLazyLoading(page);
+    await DynamicElementPage.scrollDownImagesLoading(page);
+    await expect(DynamicElementPage.getImagesLoadingTittle(page)).toBeVisible({timeout: 10000});
+ 
+});
+
+test('Dynamic Elements functionality click Infinite scroll on slide menus', async ({ page }) => {
+    await page.goto('');
+    await HomePage.clickDashboard(page);
+    // await DashboardPage.clickStartPracticeByIndex(page, 1);
+    await DashboardPage.clickSideMenuByNameAs(page, 'Dynamic Elements');
+    await DynamicElementPage.scrollInfinite(page);
+    // await DynamicElementPage.scrollInfiniteItems(page);
+    await DynamicElementPage.scrollUntilTargetLoaded(page);
+    await expect(DynamicElementPage.getNoMoreItemsTittle(page)).toBeVisible({timeout: 10000});
+ 
+});
+
+test('Dynamic Elements functionality click Infinite scroll on dashboard', async ({ page }) => {
+    await page.goto('');
+    await HomePage.clickDashboard(page);
+    await DashboardPage.clickStartPracticeByIndex(page, 1);
+    // await DashboardPage.clickSideMenuByNameAs(page, 'Dynamic Elements');
+    await DynamicElementPage.scrollInfinite(page);
+    // await DynamicElementPage.scrollInfiniteItems(page);
+    await DynamicElementPage.scrollUntilTargetLoaded(page);
+    await expect(DynamicElementPage.getNoMoreItemsTittle(page)).toBeVisible({timeout: 10000});
+ 
+});
+
+test('Dynamic Elements functionality click Hidden Elements on dashboard', async ({ page }) => {
+    await page.goto('');
+    await HomePage.clickDashboard(page);
+    await DashboardPage.clickStartPracticeByIndex(page, 1);
+    // await DashboardPage.clickSideMenuByNameAs(page, 'Dynamic Elements');
+    await DynamicElementPage.clickHiddenElements(page);
+    await expect(DynamicElementPage.getHiddenElementTittle(page)).toBeVisible({timeout: 10000});
+ 
+});
+
+test('Dynamic Elements functionality click Hidden Elements on slide menus', async ({ page }) => {
+    await page.goto('');
+    await HomePage.clickDashboard(page);
+    // await DashboardPage.clickStartPracticeByIndex(page, 1);
+    await DashboardPage.clickSideMenuByNameAs(page, 'Dynamic Elements');
+    await DynamicElementPage.clickHiddenElements(page);
+    await expect(DynamicElementPage.getHiddenElementTittle(page)).toBeVisible({timeout: 10000});
+ 
+});
+
+test('Dynamic Elements functionality click Dynamic Content Generation on slide menus', async ({ page }) => {
+    await page.goto('');
+    await HomePage.clickDashboard(page);
+    // await DashboardPage.clickStartPracticeByIndex(page, 1);
+    await DashboardPage.clickSideMenuByNameAs(page, 'Dynamic Elements');
+    await DynamicElementPage.clickDynamicContentGeneration(page);
+    await expect(DynamicElementPage.getDynamicElementTittle(page)).toBeVisible({timeout: 10000});
+ 
+});
+
+test('Dynamic Elements functionality click Dynamic Content Generation on dashboard', async ({ page }) => {
+    await page.goto('');
+    await HomePage.clickDashboard(page);
+    await DashboardPage.clickStartPracticeByIndex(page, 1);
+    // await DashboardPage.clickSideMenuByNameAs(page, 'Dynamic Elements');
+    await DynamicElementPage.clickDynamicContentGeneration(page);
+    await expect(DynamicElementPage.getDynamicElementTittle(page)).toBeVisible({timeout: 10000});
+ 
+});
+
+
+
+
+
+
+
+
 
